@@ -1,3 +1,4 @@
+//using a dictionary and also finding the index of the numbers
 function twoSum(nums, target) {
   let memory = {};
   for (let i = 0; i < nums.length; i++) {
@@ -15,4 +16,19 @@ function twoSum(nums, target) {
     }
   }
 }
+//using a dictionary and finding the actual numbers that add up to the target
+function twoSum2(nums, target) {
+  let memory = {};
+  for (let item of nums) {
+    let potentialNum = target - item;
+    if (potentialNum in memory) {
+      return [potentialNum, item];
+    } else {
+      memory[item] = true;
+    }
+  }
+  return [];
+}
+
 console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum2([2, 7, 11, 15], 9));
