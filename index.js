@@ -30,5 +30,19 @@ function twoSum2(nums, target) {
   return [];
 }
 
+//brute force solution
+function twoSumBrute(nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    let firstNum = nums[i];
+    for (let j = i + 1; j < nums.length; j++) {
+      let secondNum = nums[j];
+      if (firstNum + secondNum === target) {
+        return [firstNum, secondNum];
+      }
+    }
+  }
+  return [];
+}
+
 console.log(twoSum([2, 7, 11, 15], 9));
 console.log(twoSum2([2, 7, 11, 15], 9));
