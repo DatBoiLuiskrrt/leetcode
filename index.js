@@ -44,5 +44,22 @@ function twoSumBrute(nums, target) {
   return [];
 }
 
+// 217 Contains Duplicate
+/**
+ * Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+ */
+var containsDuplicate = function (nums) {
+  let hashMap = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (hashMap[nums[i]] === true) {
+      return true;
+    } else {
+      hashMap[nums[i]] = true;
+    }
+  }
+  return false;
+};
+
 console.log(twoSum([2, 7, 11, 15], 9));
 console.log(twoSum2([2, 7, 11, 15], 9));
+console.log(containsDuplicate([2, 7, 11, 15]));
