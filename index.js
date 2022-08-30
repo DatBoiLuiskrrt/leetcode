@@ -60,6 +60,26 @@ var containsDuplicate = function (nums) {
   return false;
 };
 
+// 49. Group Anagrams
+/**
+ * Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+ */
+var groupAnagrams = function (strs) {
+  const sortedStr = strs.map((word) => word.split("").sort().join(""));
+  const hash = {};
+
+  for (let i = 0; i < strs.length; i++) {
+    if (!hash[sortedStr[i]]) {
+      hash[sortedStr[i]] = [strs[i]];
+    } else {
+      hash[sortedStr[i]].push(strs[i]);
+    }
+  }
+  return Object.values(hash);
+};
+
 console.log(twoSum([2, 7, 11, 15], 9));
 console.log(twoSum2([2, 7, 11, 15], 9));
 console.log(containsDuplicate([2, 7, 11, 15]));
