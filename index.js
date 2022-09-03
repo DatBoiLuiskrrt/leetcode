@@ -80,6 +80,35 @@ var groupAnagrams = function (strs) {
   return Object.values(hash);
 };
 
+/**
+ * 242 valid Anagram
+ * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+ */
+
+/**
+ *
+ */
+let isAnagram = function (s, t) {
+  if (s.length != t.length) {
+    return false;
+  }
+  const hashS = {};
+  const hashT = {};
+  for (let i = 0; i < s.length; i++) {
+    hashS[s[i]] = hashS[s[i]] + 1;
+    hashT[s[i]] = hashT[s[i]] + 1;
+  }
+  for (let i = 0; i < hashS.length; i++) {
+    if (hashS[i] != hashT[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
 console.log(twoSum([2, 7, 11, 15], 9));
 console.log(twoSum2([2, 7, 11, 15], 9));
 console.log(containsDuplicate([2, 7, 11, 15]));
+console.log(isAnagram("anagram", "nagaram"));
